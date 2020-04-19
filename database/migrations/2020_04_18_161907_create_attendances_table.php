@@ -21,11 +21,15 @@ class CreateAttendancesTable extends Migration
                 ->on('users');
 
             $table->date('date');
+
+            // 1 = masuk, 2 = alpha, 3 sakit, 4 izin
+            $table->unsignedInteger('status')->default(1);
             $table->dateTime('time_in')->default(null)->nullable();
             $table->dateTime('time_out')->default(null)->nullable();
 
             $table->unique(['user_id', 'date']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

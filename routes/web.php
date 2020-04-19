@@ -13,10 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController');
+Route::group([
+    'prefix' => 'dashboard',
+    'as' => 'dashboard.',
+    'namespace' => 'Dashboard',
+    'middleware' => 'auth'
+    ], function () {
 
-Auth::routes();
+    Route::get('/', 'HomeController')->name('index');
+    Route::resource('/user', 'UserController');
+    Route::resource('/attendance', 'AttendanceController');
+    Route::resource('/information', 'InformationController');
+    Route::resource('/leave', 'LeaveController');
+    Route::resource('/master-position', 'MasterPositionController');
+    Route::resource('/personal-qualification', 'PersonalQualificationController');
+});
+Route::get('/logout', 'LogoutController')->name('logout.get');
+
+Auth::routes([
+    'register' => false
+]);
 
 Route::get('/home', 'HomeController@index')->name('home');

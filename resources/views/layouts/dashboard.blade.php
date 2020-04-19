@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{{ asset('adminlte-3.0.2/plugins/fontawesome-free/css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte-3.0.4/plugins/fontawesome-free/css/all.min.css') }}">
 {{--    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">--}}
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('adminlte-3.0.2/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('adminlte-3.0.4/dist/css/adminlte.min.css') }}">
 {{--    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">--}}
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
@@ -38,16 +38,16 @@
         </ul>
 
         <!-- SEARCH FORM -->
-        <form class="form-inline ml-3">
-            <div class="input-group input-group-sm">
-                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-navbar" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-        </form>
+{{--        <form class="form-inline ml-3">--}}
+{{--            <div class="input-group input-group-sm">--}}
+{{--                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">--}}
+{{--                <div class="input-group-append">--}}
+{{--                    <button class="btn btn-navbar" type="submit">--}}
+{{--                        <i class="fas fa-search"></i>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </form>--}}
 
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
@@ -57,7 +57,7 @@
 {{--                </a>--}}
 {{--            </li>--}}
             <li class="nav-item">
-                <a class="nav-link" href="/logout">
+                <a class="nav-link" href="{{ route('logout.get') }}">
                     Logout
                 </a>
             </li>
@@ -69,23 +69,23 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="{{ route('dashboard.index') }}" class="brand-link">
-            <img src="{{ asset('images/logo-light.png') }}"
-                 alt="AdminLTE Logo"
-                 class="brand-image">
+{{--            <img src="{{ asset('images/logo-light.png') }}"--}}
+{{--                 alt="AdminLTE Logo"--}}
+{{--                 class="brand-image">--}}
             <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
         </a>
 
         <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user (optional) -->
-{{--            <div class="user-panel mt-3 pb-3 mb-3 d-flex">--}}
-{{--                <div class="image">--}}
-{{--                    <img src="{{ asset('adminlte-3.0.2/dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">--}}
-{{--                </div>--}}
-{{--                <div class="info">--}}
-{{--                    <a href="#" class="d-block">Alexander Pierce</a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                <div class="image">
+                    <img src="{{ auth()->user()->avatar }}" class="img-circle elevation-2" alt="User Image">
+                </div>
+                <div class="info">
+                    <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+                </div>
+            </div>
 
             <!-- Sidebar Menu -->
             <nav class="mt-2">
@@ -102,64 +102,69 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.kapal.index') }}" class="nav-link">
-                            <i class="nav-icon far fas fa-ship"></i>
+                        <a href="{{ route('dashboard.user.index') }}" class="nav-link">
+                            <i class="nav-icon far fas fa-users"></i>
                             <p>
-                                Kapal
+                                Profile Pegawai
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.transaksi.index') }}" class="nav-link">
-                            <i class="nav-icon far fa-calendar-alt"></i>
+                        <a href="{{ route('dashboard.attendance.index')}}" class="nav-link">
+                            <i class="nav-icon far fas fa-clock"></i>
                             <p>
-                                Transaksi
+                                Data Absensi
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.penawaran.index') }}" class="nav-link">
-                            <i class="nav-icon far fas fa-wallet"></i>
+                        <a href="{{ route('dashboard.leave.index') }}" class="nav-link">
+                            <i class="nav-icon far fas fa-calendar-alt"></i>
                             <p>
-                                Penawaran
-                            </p>
-                        </a>
-                    </li>
-
-                    @hasanyrole(\App\Enums\RoleEnum::$biayaKalkulasi)
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.kategori-pekerjaan.index') }}" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Kategori Pekerjaan
+                                Data Cuti
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.satuan.index') }}" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
+                        <a href="{{ route('dashboard.personal-qualification.index') }}" class="nav-link">
+                            <i class="nav-icon far fas fa-certificate"></i>
                             <p>
-                                Satuan
+                                Kualifikasi Personal
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('dashboard.jenis-kapal.index') }}" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fas fa-running"></i>
                             <p>
-                                Jenis Kapal
+                                Penunjukan inspektor
                             </p>
                         </a>
                     </li>
-{{--                    <li class="nav-item">--}}
-{{--                        <a href="" class="nav-link">--}}
-{{--                            <i class="nav-icon far fa-image"></i>--}}
-{{--                            <p>--}}
-{{--                                Kapal--}}
-{{--                            </p>--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-                    @endhasanyrole
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fas fa-user-ninja"></i>
+                            <p>
+                                Jasa Inspeksi
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard.information.index') }}" class="nav-link">
+                            <i class="nav-icon fas fas fa-newspaper"></i>
+                            <p>
+                                Informasi
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard.master-position.index') }}" class="nav-link">
+                            <i class="nav-icon fas fas fa-newspaper"></i>
+                            <p>
+                                Master Jabatan
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -192,30 +197,6 @@
         <!-- Main content -->
         <section class="content" id="app">
         @yield('content')
-
-{{--            <!-- Default box -->--}}
-{{--            <div class="card">--}}
-{{--                <div class="card-header">--}}
-{{--                    <h3 class="card-title">Title</h3>--}}
-
-{{--                    <div class="card-tools">--}}
-{{--                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">--}}
-{{--                            <i class="fas fa-minus"></i></button>--}}
-{{--                        <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">--}}
-{{--                            <i class="fas fa-times"></i></button>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="card-body">--}}
-{{--                    Start creating your amazing application!--}}
-{{--                </div>--}}
-{{--                <!-- /.card-body -->--}}
-{{--                <div class="card-footer">--}}
-{{--                    Footer--}}
-{{--                </div>--}}
-{{--                <!-- /.card-footer-->--}}
-{{--            </div>--}}
-{{--            <!-- /.card -->--}}
-
         </section>
         <!-- /.content -->
     </div>
@@ -223,7 +204,7 @@
 
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.2
+            <b>Version</b> 3.0.4
         </div>
         <strong>Copyright &copy; 2020 {{ config('app.name') }}.</strong> All rights
         reserved.
@@ -244,13 +225,13 @@
 {{--<script src="{{ asset('adminlte-3.0.2/plugins/jquery/jquery.min.js') }}"></script>--}}
 <!-- Bootstrap 4 -->
 {{--<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>--}}
-<script src="{{ asset('adminlte-3.0.2/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('adminlte-3.0.4/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 {{--<script src="../../dist/js/adminlte.min.js"></script>--}}
-<script src="{{ asset('adminlte-3.0.2/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('adminlte-3.0.4/dist/js/adminlte.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 {{--<script src="../../dist/js/demo.js"></script>--}}
-<script src="{{ asset('adminlte-3.0.2/dist/js/demo.js') }}"></script>
+<script src="{{ asset('adminlte-3.0.4/dist/js/demo.js') }}"></script>
 
 @stack('javascript')
 </body>

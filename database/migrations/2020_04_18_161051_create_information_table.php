@@ -16,11 +16,11 @@ class CreateInformationTable extends Migration
         Schema::create('information', function (Blueprint $table) {
             $table->id();
             $table->string('code');
-            $table->date('date');
             $table->string('title');
             $table->string('number');
             $table->text('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

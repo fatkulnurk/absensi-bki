@@ -35,6 +35,18 @@ class LoginController extends Controller
      */
     public function __construct()
     {
+        $this->redirectTo = route('dashboard.index');
         $this->middleware('guest')->except('logout');
+    }
+
+    public function username()
+    {
+        $login = request()->input('email');
+
+        $fieldType = filter_var($login, FILTER_VALIDATE_EMAIL) ? 'email' : 'nip';
+
+        request()->merge([$fieldType => $login]);
+
+        return $fieldType;
     }
 }
