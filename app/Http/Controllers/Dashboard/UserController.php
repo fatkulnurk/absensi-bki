@@ -84,11 +84,13 @@ class UserController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        return view('dashboard.users.show', compact('user'));
     }
 
     /**

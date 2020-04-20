@@ -33,10 +33,13 @@
                         <td>{{ $user->email }}</td>
                         <td class="text-center">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <a href="{{ route('dashboard.user.show', $user->id) }}" class="btn btn-success btn-block">Show</a>
+                                </div>
+                                <div class="col-md-4">
                                     <a href="{{ route('dashboard.user.edit', $user->id) }}" class="btn btn-info btn-block">Edit</a>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
                                     <form action="{{ route('dashboard.user.destroy', $user->id) }}" method="post">
                                         @csrf
                                         @method('DELETE')
