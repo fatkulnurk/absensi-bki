@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'WelcomeController');
+
 Route::group([
     'prefix' => 'dashboard',
     'as' => 'dashboard.',
