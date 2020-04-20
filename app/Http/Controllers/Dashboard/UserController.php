@@ -135,7 +135,6 @@ class UserController extends Controller
             'position' => $request->input('position'),
             'nip' => $request->input('nip'),
             'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
             'gender' => $request->input('gender'),
             'phone_number' => $request->input('phone_number'),
             'address' => $request->input('address')
