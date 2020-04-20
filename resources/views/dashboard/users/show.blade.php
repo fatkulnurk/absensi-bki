@@ -6,7 +6,6 @@
 
     <div class="card">
         <div class="card-body">
-
             <table id="example" class="table table-striped table-bordered">
                 <tr>
                     <td colspan="3" class="text-center">
