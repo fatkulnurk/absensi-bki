@@ -49,6 +49,7 @@ class User extends Authenticatable
         if (blank($key)) {
             return '/images/avatar.png';
         }
+
         return Storage::url($key);
     }
 
