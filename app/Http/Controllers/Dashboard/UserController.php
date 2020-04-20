@@ -58,7 +58,7 @@ class UserController extends Controller
             'address' => 'required|string',
         ]);
         $avatar = $request->file('avatar');
-        $avatarPath = Storage::disk('public')->put('/images/avatar/', $avatar);
+        $avatarPath = Storage::disk('public')->put('/images/avatar', $avatar);
 
         $user = User::create([
             'avatar' => $avatarPath,
@@ -142,7 +142,7 @@ class UserController extends Controller
 
         if ($request->has('avatar')) {
             $avatar = $request->file('avatar');
-            $avatarPath = Storage::disk('public')->put('/images/avatar/', $avatar);
+            $avatarPath = Storage::disk('public')->put('/images/avatar', $avatar);
             $user->update([
                 'avatar' => $avatarPath,
             ]);
