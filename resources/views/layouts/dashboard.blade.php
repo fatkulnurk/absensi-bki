@@ -7,216 +7,127 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+{{--    <link rel="stylesheet" href="{{ asset('css/app.css') }}">--}}
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminlte-3.0.4/plugins/fontawesome-free/css/all.min.css') }}">
-{{--    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">--}}
+
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="{{ asset('adminlte-3.0.4/dist/css/adminlte.min.css') }}">
-{{--    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">--}}
+
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
+
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="{{ asset('assets/modules/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/modules/fontawesome/css/all.min.css') }}">
+
+    <!-- CSS Libraries -->
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
+
     @stack('head')
 </head>
-<body class="hold-transition sidebar-mini">
-<!-- Site wrapper -->
-<div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="{{ route('dashboard.index') }}" class="nav-link">Home</a>
-            </li>
-        </ul>
+<body>
 
-        <!-- SEARCH FORM -->
-{{--        <form class="form-inline ml-3">--}}
-{{--            <div class="input-group input-group-sm">--}}
-{{--                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">--}}
-{{--                <div class="input-group-append">--}}
-{{--                    <button class="btn btn-navbar" type="submit">--}}
-{{--                        <i class="fas fa-search"></i>--}}
-{{--                    </button>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </form>--}}
-
-        <!-- Right navbar links -->
-        <ul class="navbar-nav ml-auto">
-{{--            <li class="nav-item">--}}
-{{--                <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#">--}}
-{{--                    <i class="fas fa-th-large"></i>--}}
-{{--                </a>--}}
-{{--            </li>--}}
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('logout.get') }}">
-                    Logout
-                </a>
+<div class="main-wrapper main-wrapper-1">
+    <div class="navbar-bg"></div>
+    <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+            <ul class="navbar-nav mr-3">
+                <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
+                <li><a href="#" data-toggle="search" class="nav-link nav-link-lg d-sm-none"><i class="fas fa-search"></i></a></li>
+            </ul>
+        </form>
+        <ul class="navbar-nav navbar-right">
+            <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                    <img alt="image" src="{{ auth()->user()->avatar }}" class="rounded-circle mr-1">
+                    <div class="d-sm-none d-lg-inline-block">Hi, {{ auth()->user()->name }}</div></a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="{{ route('logout.get') }}" class="dropdown-item has-icon text-danger">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </div>
             </li>
         </ul>
     </nav>
-    <!-- /.navbar -->
+    <div class="main-sidebar sidebar-style-2">
+        <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+                <a href="{{ route('dashboard.index') }}">{{ config('app.name') }}</a>
+            </div>
+            <div class="sidebar-brand sidebar-brand-sm">
+                <a href="{{ route('dashboard.index') }}">AB</a>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-header">Menu</li>
+                <li><a class="nav-link" href="{{ route('dashboard.index') }}"><i class="far fas fa-home"></i> <span>Dashboard</span></a></li>
+                <li><a class="nav-link" href="{{ route('dashboard.user.index') }}"><i class="far fas fa-users"></i> <span>Profile Pegawai</span></a></li>
+                <li><a class="nav-link" href="{{ route('dashboard.attendance.index') }}"><i class="far fas fa-clock"></i> <span>Data Absensi</span></a></li>
+                <li><a class="nav-link" href="{{ route('dashboard.leave.index') }}"><i class="far fas fa-calendar-alt"></i> <span>Data Cuti</span></a></li>
+                <li><a class="nav-link" href="{{ route('dashboard.personal-qualification.index') }}"><i class="far fas fa-certificate"></i> <span>Kualifikasi Personal</span></a></li>
+                <li><a class="nav-link" href="#"><i class="far fas fa-running"></i> <span>Penunjukan Inspektor</span></a></li>
+                <li><a class="nav-link" href="#"><i class="far fas fa-user-ninja"></i> <span>Jasa Inspeksi</span></a></li>
+                <li><a class="nav-link" href="{{ route('dashboard.information.index') }}"><i class="far fas fa-newspaper"></i> <span>Informasi</span></a></li>
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="{{ route('dashboard.index') }}" class="brand-link">
-{{--            <img src="{{ asset('images/logo-light.png') }}"--}}
-{{--                 alt="AdminLTE Logo"--}}
-{{--                 class="brand-image">--}}
-            <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
-        </a>
+                <li class="menu-header">Data Master</li>
+                <li><a class="nav-link" href="{{ route('dashboard.master-position.index') }}"><i class="far fas fa-newspaper"></i> <span>Master Jabatan</span></a></li>
+            </ul>
+        </aside>
+    </div>
 
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ auth()->user()->avatar }}" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#" class="d-block">{{ auth()->user()->name }}</a>
-                </div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <section class="section">
+            <div class="section-header">
+                <h1>@yield('title')</h1>
             </div>
 
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-                    <li class="nav-header">Menu</li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.index') }}" class="nav-link">
-                            <i class="nav-icon far fas fa-home"></i>
-                            <p>
-                                Dashboard
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.user.index') }}" class="nav-link">
-                            <i class="nav-icon far fas fa-users"></i>
-                            <p>
-                                Profile Pegawai
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.attendance.index')}}" class="nav-link">
-                            <i class="nav-icon far fas fa-clock"></i>
-                            <p>
-                                Data Absensi
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.leave.index') }}" class="nav-link">
-                            <i class="nav-icon far fas fa-calendar-alt"></i>
-                            <p>
-                                Data Cuti
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.personal-qualification.index') }}" class="nav-link">
-                            <i class="nav-icon far fas fa-certificate"></i>
-                            <p>
-                                Kualifikasi Personal
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fas fa-running"></i>
-                            <p>
-                                Penunjukan inspektor
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fas fa-user-ninja"></i>
-                            <p>
-                                Jasa Inspeksi
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.information.index') }}" class="nav-link">
-                            <i class="nav-icon fas fas fa-newspaper"></i>
-                            <p>
-                                Informasi
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="{{ route('dashboard.master-position.index') }}" class="nav-link">
-                            <i class="nav-icon fas fas fa-newspaper"></i>
-                            <p>
-                                Master Jabatan
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
+            <div class="section-body" id="app">
+                @include('vendor.notification')
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1>@yield('title')</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">@yield('title')</li>
-                        </ol>
-                    </div>
-                </div>
-            </div><!-- /.container-fluid -->
+                @yield('content')
+            </div>
         </section>
-
-        {{-- Notification --}}
-        @include('vendor.notification')
-
-        <!-- Main content -->
-        <section class="content" id="app">
-        @yield('content')
-        </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
     <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 3.0.4
+        <div class="footer-left">
+            Copyright &copy; {{ \Illuminate\Support\Carbon::now()->year }}
         </div>
-        <strong>Copyright &copy; 2020 {{ config('app.name') }}.</strong> All rights
-        reserved.
+        <div class="footer-right">
+            {{ config('app.name') }}
+        </div>
     </footer>
-
-{{--    <!-- Control Sidebar -->--}}
-{{--    <aside class="control-sidebar control-sidebar-dark">--}}
-{{--        <!-- Control sidebar content goes here -->--}}
-{{--    </aside>--}}
-    <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
+
+
+<!-- Site wrapper -->
+{{--<div class="wrapper">--}}
+{{--    <!-- Content Wrapper. Contains page content -->--}}
+{{--    <div class="content-wrapper">--}}
+{{--        --}}{{-- Notification --}}
+{{--        @include('vendor.notification')--}}
+
+{{--        <!-- Main content -->--}}
+{{--        <section class="content" id="app">--}}
+{{--        @yield('content')--}}
+{{--        </section>--}}
+{{--        <!-- /.content -->--}}
+{{--    </div>--}}
+{{--    <!-- /.content-wrapper -->--}}
+
+{{--    <footer class="main-footer">--}}
+{{--        <div class="float-right d-none d-sm-block">--}}
+{{--            <b>Version</b> 3.0.4--}}
+{{--        </div>--}}
+{{--        <strong>Copyright &copy; 2020 {{ config('app.name') }}.</strong> All rights--}}
+{{--        reserved.--}}
+{{--    </footer>--}}
+
 
 <script src="{{ asset('js/app.js') }}"></script>
 
@@ -232,6 +143,26 @@
 <!-- AdminLTE for demo purposes -->
 {{--<script src="../../dist/js/demo.js"></script>--}}
 <script src="{{ asset('adminlte-3.0.4/dist/js/demo.js') }}"></script>
+
+
+{{-- stisla--}}
+
+<!-- General JS Scripts -->
+<script src="{{ asset('assets/modules/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/modules/popper.js') }}"></script>
+<script src="{{ asset('assets/modules/tooltip.js') }}"></script>
+<script src="{{ asset('assets/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+<script src="{{ asset('assets/modules/moment.min.js') }}"></script>
+<script src="{{ asset('assets/js/stisla.js') }}"></script>
+
+<!-- JS Libraies -->
+
+<!-- Page Specific JS File -->
+
+<!-- Template JS File -->
+<script src="{{ asset('assets/js/scripts.js') }}"></script>
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 
 @stack('javascript')
 </body>

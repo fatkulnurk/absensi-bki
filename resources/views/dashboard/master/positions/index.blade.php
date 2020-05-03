@@ -6,7 +6,6 @@
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">@yield('title')</h3>
             <div class="card-tools">
                 <a href="{{ route('dashboard.master-position.create') }}" class="btn btn-primary">Tambah Data</a>
             </div>

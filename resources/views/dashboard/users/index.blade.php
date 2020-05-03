@@ -1,12 +1,11 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Semua Pengguna')
+@section('title', 'Profil Pegawai')
 
 @section('content')
 
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">@yield('title')</h3>
             <div class="card-tools">
                 <a href="{{ route('dashboard.user.create') }}" class="btn btn-primary">Tambah Data</a>
             </div>

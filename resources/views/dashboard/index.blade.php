@@ -1,32 +1,42 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Semua Kapal')
+@section('title', 'Dashboard')
 
 @section('content')
 
-    <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">@yield('title')</h3>
-            <div class="card-tools">
-                <a href="" class="btn btn-primary">Tambah Data</a>
+    <div class="row">
+        <div class="col-6">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-primary">
+                    <i class="far fa-file"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Reports</h4>
+                    </div>
+                    <div class="card-body">
+                        1,201
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="card-body">
-
-            <table id="example" class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th style="width: 20px">No</th>
-                    <th>Nama Kapal</th>
-                    <th>Jenis Kapal</th>
-                    <th style="width: 350px">Opsi</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
+        <div class="col-6">
+            <div class="card card-statistic-1">
+                <div class="card-icon bg-warning">
+                    <i class="far fa-file"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Reports</h4>
+                    </div>
+                    <div class="card-body">
+                        1,201
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
 
 @endsection
 @push('javascript')
