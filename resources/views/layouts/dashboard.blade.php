@@ -30,6 +30,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/components.css') }}">
 
+    <style>
+        .navbar {
+            background-color: #003567;
+        }
+    </style>
+
     @stack('head')
 </head>
 <body>
@@ -70,8 +76,8 @@
                 <li><a class="nav-link" href="{{ route('dashboard.attendance.index') }}"><i class="far fas fa-clock"></i> <span>Data Absensi</span></a></li>
                 <li><a class="nav-link" href="{{ route('dashboard.leave.index') }}"><i class="far fas fa-calendar-alt"></i> <span>Data Cuti</span></a></li>
                 <li><a class="nav-link" href="{{ route('dashboard.personal-qualification.index') }}"><i class="far fas fa-certificate"></i> <span>Kualifikasi Personal</span></a></li>
-                <li><a class="nav-link" href="#"><i class="far fas fa-running"></i> <span>Penunjukan Inspektor</span></a></li>
-                <li><a class="nav-link" href="#"><i class="far fas fa-user-ninja"></i> <span>Jasa Inspeksi</span></a></li>
+{{--                <li><a class="nav-link" href="#"><i class="far fas fa-running"></i> <span>Penunjukan Inspektor</span></a></li>--}}
+                <li><a class="nav-link" href="{{ route('dashboard.inspection.index') }}"><i class="far fas fa-user-ninja"></i> <span>Jasa Inspeksi</span></a></li>
                 <li><a class="nav-link" href="{{ route('dashboard.information.index') }}"><i class="far fas fa-newspaper"></i> <span>Informasi</span></a></li>
 
                 <li class="menu-header">Data Master</li>

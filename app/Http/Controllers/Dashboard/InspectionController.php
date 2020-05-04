@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Inspection;
 use App\MasterPosition;
 use Illuminate\Http\Request;
 
-class MasterPositionController extends Controller
+class InspectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class MasterPositionController extends Controller
      */
     public function index()
     {
-        $positions = MasterPosition::all();
+        $inspections = Inspection::all();
 
-        return view('dashboard.master.positions.index', compact('positions'));
+        return view('dashboard.inspection.index', compact('inspections'));
     }
 
     /**
@@ -27,11 +28,7 @@ class MasterPositionController extends Controller
      */
     public function create()
     {
-        return view('dashboard.master.positions.create');
-    }
-
-    public function validatation(Request $request) {
-        $request->validate(['name' => 'required|string']);
+        return view('dashboard.inspection.create');
     }
 
     /**
@@ -42,13 +39,10 @@ class MasterPositionController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validatation($request);
+        $request->validate(['name' => 'required|string']);
+        Inspection::create($request->only('name'));
 
-        MasterPosition::create([
-            'name' => $request->input('name')
-        ]);
-
-        return redirect()->route('dashboard.master-position.index')->with('success', 'berhasil ditambahkan');
+        return redirect()->route('dashboard.inspection.index')->with('success', 'berhasil ditambahkan');
     }
 
     /**
@@ -70,9 +64,9 @@ class MasterPositionController extends Controller
      */
     public function edit($id)
     {
-        $position = MasterPosition::findOrFail($id);
+        $inspection = Inspection::findOrFail($id);
 
-        return view('dashboard.master.positions.edit', compact('position'));
+        return view('dashboard.inspection.edit', compact('inspection'));
     }
 
     /**
@@ -84,12 +78,13 @@ class MasterPositionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validatation($request);
-        $position = MasterPosition::findOrFail($id);
-        $position->name = $request->input('name');
-        $position->save();
+        $request->validate(['name' => 'required|string']);
 
-        return redirect()->route('dashboard.master-position.index')->with('success', 'berhasil dirubah');
+        $inspection = Inspection::findOrFail($id);
+        $inspection->name = $request->input('name');
+        $inspection->save();
+
+        return redirect()->route('dashboard.inspection.index')->with('success', 'berhasil dirubah');
     }
 
     /**
@@ -100,9 +95,9 @@ class MasterPositionController extends Controller
      */
     public function destroy($id)
     {
-        $position = MasterPosition::findOrFail($id);
-        $position->delete();
+        $inspection = Inspection::findOrFail($id);
+        $inspection->delete();
 
-        return redirect()->route('dashboard.master-position.index')->with('success', 'berhasil dihapus');
+        return redirect()->route('dashboard.inspection.index')->with('success', 'berhasil dihapus');
     }
 }

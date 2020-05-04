@@ -28,6 +28,7 @@ Route::group([
     Route::resource('/information', 'InformationController');
     Route::resource('/leave', 'LeaveController');
     Route::resource('/master-position', 'MasterPositionController');
+    Route::resource('/inspection', 'InspectionController');
     Route::resource('/personal-qualification', 'PersonalQualificationController');
 });
 Route::get('/logout', 'LogoutController')->name('logout.get');

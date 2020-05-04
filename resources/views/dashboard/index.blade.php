@@ -8,14 +8,14 @@
         <div class="col-6">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                    <i class="far fa-file"></i>
+                    <i class="far fas fa-user-alt"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Reports</h4>
+                        <h4>Pegawai</h4>
                     </div>
                     <div class="card-body">
-                        1,201
+                        {{ $user }}
                     </div>
                 </div>
             </div>
@@ -23,14 +23,14 @@
         <div class="col-6">
             <div class="card card-statistic-1">
                 <div class="card-icon bg-warning">
-                    <i class="far fa-file"></i>
+                    <i class="far fa-newspaper"></i>
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Reports</h4>
+                        <h4>Informasi</h4>
                     </div>
                     <div class="card-body">
-                        1,201
+                        {{ $information }}
                     </div>
                 </div>
             </div>
