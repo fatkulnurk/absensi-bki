@@ -12,9 +12,9 @@ class InspectionSeeder extends Seeder
     public function run()
     {
         $data = ['Bid. Industri', 'Bid. Marine', 'Bid. Migas'];
+
         foreach ($data as $item) {
             \App\Inspection::create(['name' => $item]);
         }
-
     }
 }
