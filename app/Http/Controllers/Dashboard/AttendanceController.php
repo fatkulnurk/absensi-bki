@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Attendance;
 use App\Http\Controllers\Controller;
+use App\User;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -10,32 +14,63 @@ class AttendanceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $attendances = Attendance::all();
+
+        if ($request->has('year') && $request->has('month')) {
+            $date = $request->query('year') . '-' . $request->query('month') . '-1';
+            $dates = CarbonPeriod::create(new Carbon('first day of ' . $date), new Carbon('last day of ' . $date));
+        } else {
+            $dates = CarbonPeriod::create(new Carbon('first day of this month'), new Carbon('last day of this month'));
+        }
+
+        return view('dashboard.attendances.index', compact('attendances', 'dates'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function create()
     {
-        //
+        $users = User::all();
+
+        return view('dashboard.attendances.create', compact('users'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'date' => 'required',
+            'status' => 'required',
+        ]);
+
+        $attendance = Attendance::whereDate('date', Carbon::parse($request->input('date'))->toDateTime())
+            ->where('user_id', $request->input('user_id'))
+            ->get();
+
+        if (blank($attendance)) {
+            Attendance::create([
+                'user_id' => $request->input('user_id'),
+                'date' => Carbon::parse($request->input('date'))->toDateTime(),
+                'status' =>  $request->input('status'),
+            ]);
+
+            return redirect()->route('dashboard.attendance.index')->with('success', 'berhasil ditambahkan');
+        }
+
+        return redirect()->route('dashboard.attendance.index')->with('error', 'data sudah ada');
     }
 
     /**

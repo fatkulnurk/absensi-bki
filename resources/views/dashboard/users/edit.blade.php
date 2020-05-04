@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Tambah User')
+@section('title', 'Edit User')
 
 @section('content')
     <div class="card">

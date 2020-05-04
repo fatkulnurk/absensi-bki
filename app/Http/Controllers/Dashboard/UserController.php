@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\MasterPosition;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -20,6 +22,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->hasRole(RoleEnum::$inspector)) {
+            return redirect()->route('dashboard.user.edit', Auth::id());
+        }
+
         $users = User::all();
 
         return view('dashboard.users.index', compact('users'));
@@ -150,6 +156,12 @@ class UserController extends Controller
 
         $role = Role::findById($request->input('role'));
         $user->syncRoles([$role]);
+
+        if (Auth::user()->hasRole(RoleEnum::$inspector)) {
+            return redirect()
+                ->route('dashboard.user.edit', Auth::id())
+                ->with('success', 'User berhasil diupdate');
+        }
 
         return redirect()
             ->route('dashboard.user.index')

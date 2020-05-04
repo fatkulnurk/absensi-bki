@@ -34,10 +34,24 @@ class UserSeeder extends Seeder
         unset($user);
         $role = \Spatie\Permission\Models\Role::findByName('inspektor');
         $user = \App\User::create([
-            'name' => 'Admin',
-            'position' => 'admin',
+            'name' => 'inspektor',
+            'position' => 'inspektor',
             'nip' => '1234567891',
             'email' => 'inspektor@example.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+            'gender' => 'laki laki',
+            'phone_number' => '081081081081',
+            'address' => 'Surabaya, Indonesia (60117)'
+        ]);
+        $user->assignRole($role);
+
+        unset($user);
+        $role = \Spatie\Permission\Models\Role::findByName('pimpinan');
+        $user = \App\User::create([
+            'name' => 'pimpinan',
+            'position' => 'pimpinan',
+            'nip' => '12345678912',
+            'email' => 'pimpinan@example.com',
             'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
             'gender' => 'laki laki',
             'phone_number' => '081081081081',

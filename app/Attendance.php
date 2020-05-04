@@ -13,6 +13,33 @@ class Attendance extends Model
         'user_id', 'date', 'status', 'time_in', 'time_out'
     ];
 
+    protected $appends = [
+        'status_name'
+    ];
+
+    public function getStatusNameAttribute($value)
+    {
+        $result = '';
+        switch ($this->status) {
+            case 1:
+                $result = 'Hadir';
+                break;
+            case 2:
+                $result = 'Alpha';
+                break;
+            case 3:
+                $result = 'Sakit';
+                break;
+            case 4:
+                $result = 'Izin';
+                break;
+            default:
+                $result = '-';
+        }
+
+        return $result;
+    }
+
     public function user()
     {
         return $this->hasMany(User::class);
