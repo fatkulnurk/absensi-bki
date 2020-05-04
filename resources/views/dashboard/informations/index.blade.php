@@ -16,6 +16,7 @@
                 <thead>
                 <tr>
                     <th style="width: 20px">No</th>
+                    <th style="min-width: 100px">Post by</th>
                     <th>Kode</th>
                     <th>Judul</th>
                     <th>Deskripsi</th>
@@ -27,6 +28,7 @@
                 @foreach($informations as $information)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ optional($information->user)->name }}</td>
                         <td>{{ $information->code }}</td>
                         <td>{{ $information->title }}</td>
                         <td>{{ $information->description }}</td>

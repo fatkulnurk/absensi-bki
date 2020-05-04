@@ -10,6 +10,11 @@ class Information extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'code', 'date', 'title', 'number', 'description'
+        'user_id', 'code', 'date', 'title', 'number', 'description'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Information;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules\In;
 
 class InformationController extends Controller
@@ -45,7 +46,12 @@ class InformationController extends Controller
             'number' => 'required|string',
             'description' => 'required|string'
         ]);
-        Information::create($request->only(['code', 'date', 'title', 'number', 'description']));
+//        Information::create($request->only(['code', 'date', 'title', 'number', 'description']));
+
+        // change, because add user_id
+        $information = new Information($request->only(['code', 'date', 'title', 'number', 'description']));
+        $information->user_id = Auth::id();
+        $information->save();
 
         return redirect()->route('dashboard.information.index')->with('success', 'berhasil ditambahkan');
     }

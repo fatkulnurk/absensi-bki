@@ -29,6 +29,20 @@ class UserSeeder extends Seeder
             'phone_number' => '081081081081',
             'address' => 'Surabaya, Indonesia (60117)'
         ]);
+        $user->assignRole($roleAdmin);
+
+        unset($user);
+        $role = \Spatie\Permission\Models\Role::findByName('inspektor');
+        $user = \App\User::create([
+            'name' => 'Admin',
+            'position' => 'admin',
+            'nip' => '1234567891',
+            'email' => 'inspektor@example.com',
+            'password' => \Illuminate\Support\Facades\Hash::make('12345678'),
+            'gender' => 'laki laki',
+            'phone_number' => '081081081081',
+            'address' => 'Surabaya, Indonesia (60117)'
+        ]);
         $user->assignRole($role);
     }
 }
