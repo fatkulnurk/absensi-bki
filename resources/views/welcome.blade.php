@@ -44,7 +44,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <span>Welcome Back!</span>
                         </div>
                         <div class="col-md-3 sign-btn">
-                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter">
+{{--                            <a href="#" data-toggle="modal" data-target="#exampleModalCenter">--}}
+{{--                                <i class="fas fa-lock"></i> Sign In</a>--}}
+                            <a href="{{ route('login') }}">
                                 <i class="fas fa-lock"></i> Sign In</a>
                         </div>
                         <div class="col-md-3 sign-btn">
@@ -222,7 +224,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <span>Make a Difference with BKI</span>PT. Biro Klasifikasi Indonesia (Persero)</br>Cabang Madya Komersil Surabaya</h3>
                 <p></p>
                 <div class="resume">
-                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter2">
+{{--                    <a href="#" data-toggle="modal" data-target="#exampleModalCenter2">--}}
+{{--                        <i class="far fa-user"></i> Sign In</a>--}}
+
+                    <a href="{{ route('login') }}">
                         <i class="far fa-user"></i> Sign In</a>
                 </div>
             </div>
