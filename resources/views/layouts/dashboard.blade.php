@@ -80,8 +80,10 @@
                 <li><a class="nav-link" href="{{ route('dashboard.inspection.index') }}"><i class="far fas fa-user-ninja"></i> <span>Jasa Inspeksi</span></a></li>
                 <li><a class="nav-link" href="{{ route('dashboard.information.index') }}"><i class="far fas fa-newspaper"></i> <span>Informasi</span></a></li>
 
+                @if (!auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))
                 <li class="menu-header">Data Master</li>
                 <li><a class="nav-link" href="{{ route('dashboard.master-position.index') }}"><i class="far fas fa-newspaper"></i> <span>Master Jabatan</span></a></li>
+                @endif
             </ul>
         </aside>
     </div>

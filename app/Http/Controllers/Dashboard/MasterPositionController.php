@@ -2,12 +2,18 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\MasterPosition;
 use Illuminate\Http\Request;
 
 class MasterPositionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['role:' . RoleEnum::$admin . '|' . RoleEnum::$leader]);
+    }
+
     /**
      * Display a listing of the resource.
      *

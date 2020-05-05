@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Attendance;
+use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AttendanceController extends Controller
 {
@@ -18,7 +20,11 @@ class AttendanceController extends Controller
      */
     public function index(Request $request)
     {
-        $attendances = Attendance::all();
+        if (Auth::user()->hasRole(RoleEnum::$inspector)) {
+            $attendances = Attendance::where('user_id', Auth::id())->get();
+        } else {
+            $attendances = Attendance::all();
+        }
 
         if ($request->has('year') && $request->has('month')) {
             $date = $request->query('year') . '-' . $request->query('month') . '-1';

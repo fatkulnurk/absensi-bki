@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Enums\RoleEnum;
 use App\Http\Controllers\Controller;
 use App\PersonalQualifications;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PersonalQualificationController extends Controller
 {
@@ -16,7 +18,12 @@ class PersonalQualificationController extends Controller
      */
     public function index()
     {
-        $personalQualificatons = PersonalQualifications::all();
+
+        if (Auth::user()->hasRole(RoleEnum::$inspector)) {
+            $personalQualificatons = PersonalQualifications::where('user_id', Auth::id())->get();
+        } else {
+            $personalQualificatons = PersonalQualifications::all();
+        }
 
         return view('dashboard.personal-qualifications.index', compact('personalQualificatons'));
     }
