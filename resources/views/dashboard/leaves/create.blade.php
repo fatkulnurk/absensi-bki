@@ -10,7 +10,7 @@
             <div class="card-tools">
             </div>
         </div>
-        <form action="{{ route('dashboard.information.store') }}" method="post">
+        <form action="{{ route('dashboard.leave.store') }}" method="post">
             @csrf
             <div class="card-body">
 
@@ -61,9 +61,9 @@
 
                 <div class="form-group">
                     <label>Sampai Tanggal</label>
-                    <input type="date" class="form-control @error('start_date') is-invalid @enderror" name="start_date" value="{{ old('start_date') }}" required>
+                    <input type="date" class="form-control @error('end_date') is-invalid @enderror" name="end_date" value="{{ old('end_date') }}" required>
                 </div>
-                @error('start_date')
+                @error('end_date')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -71,11 +71,11 @@
 
                 <div class="form-group">
                     <label>Bekerja Di</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>
-                        {{ old('description') }}
+                    <textarea class="form-control @error('work_at') is-invalid @enderror" name="work_at" required>
+                        {{ old('work_at') }}
                     </textarea>
                 </div>
-                @error('description')
+                @error('work_at')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -83,11 +83,11 @@
 
                 <div class="form-group">
                     <label>Digantikan Oleh</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>
-                        {{ old('description') }}
+                    <textarea class="form-control @error('substitute') is-invalid @enderror" name="substitute" required>
+                        {{ old('substitute') }}
                     </textarea>
                 </div>
-                @error('description')
+                @error('substitute')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
@@ -95,11 +95,11 @@
 
                 <div class="form-group">
                     <label>Alasan</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" name="description" required>
-                        {{ old('description') }}
+                    <textarea class="form-control @error('excuse') is-invalid @enderror" name="excuse" required>
+                        {{ old('excuse') }}
                     </textarea>
                 </div>
-                @error('description')
+                @error('excuse')
                 <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                     </span>
