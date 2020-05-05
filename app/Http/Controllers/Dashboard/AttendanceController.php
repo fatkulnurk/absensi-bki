@@ -22,8 +22,11 @@ class AttendanceController extends Controller
     {
         if (Auth::user()->hasRole(RoleEnum::$inspector)) {
             $attendances = Attendance::where('user_id', Auth::id())->get();
+            $users = [];
         } else {
-            $attendances = Attendance::all();
+            $attendances = Attendance::with('user')->get();
+
+            $users = User::with('attendances')->get();
         }
 
         if ($request->has('year') && $request->has('month')) {
@@ -33,7 +36,8 @@ class AttendanceController extends Controller
             $dates = CarbonPeriod::create(new Carbon('first day of this month'), new Carbon('last day of this month'));
         }
 
-        return view('dashboard.attendances.index', compact('attendances', 'dates'));
+//        return view('dashboard.attendances.list-with-name', compact('users', 'dates'));
+        return view('dashboard.attendances.index', compact('users', 'dates', 'attendances'));
     }
 
     /**

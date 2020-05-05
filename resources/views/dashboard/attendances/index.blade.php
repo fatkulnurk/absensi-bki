@@ -45,33 +45,49 @@
                     <p>Hasil untuk tahun {{ request()->query('year') }} bulan {{ request()->query('month') }}</p>
                 </div>
             @endif
-            <table id="example" class="table table-striped table-bordered">
-                <thead>
-                <tr>
-                    <th style="width: 20px">No</th>
-                    <th>Tanggal</th>
-                    <th style="width: 350px">Status</th>
-                </tr>
-                </thead>
-                <tbody>
 
-                @foreach($dates as $date)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $date->format('Y-m-d') }}</td>
+            <div class="table-responsive">
 
-                        @foreach($attendances as $attendance)
-                            @if (\Carbon\Carbon::parse($attendance->date)->format('Y-m-d') === $date->format('Y-m-d'))
-                                <td>
-                                    {{ $attendance->status_name }}
-                                </td>
-                                @continue
-                            @endif
+            @if (auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))
+                    <table id="example" class="table table-striped table-bordered">
+                        <thead>
+                        <tr>
+                            <th style="width: 20px">No</th>
+                            <th>Tanggal</th>
+                            <th style="width: 350px">Status</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        @foreach($dates as $date)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $date->format('Y-m-d') }}</td>
+
+                                @foreach($attendances as $attendance)
+                                    @if ($attendance->date === $date->format('Y-m-d'))
+                                        <td>
+                                            {{ $attendance->status_name }}
+                                        </td>
+                                        @break
+                                    @else
+                                        @if ($loop->last)
+                                            @if ($date->format('Y-m-d') <= \Carbon\Carbon::now()->format('Y-m-d'))
+                                                <td>Alpha</td>
+                                            @else
+                                                <td></td>
+                                            @endif
+                                        @endif
+                                    @endif
+                                @endforeach
+                            </tr>
                         @endforeach
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+                        </tbody>
+                    </table>
+                @else
+                @include('dashboard.attendances.list-with-name', ['users' => $users, 'dates' => $dates ])
+            @endif
+            </div>
         </div>
     </div>
 

@@ -17,6 +17,15 @@ class Attendance extends Model
         'status_name'
     ];
 
+    protected $casts = [
+        'date' => 'date',
+    ];
+
+    public function getDateAttribute($value)
+    {
+        return \Carbon\Carbon::parse($value)->format('Y-m-d');
+    }
+
     public function getStatusNameAttribute($value)
     {
         $result = '';
@@ -42,6 +51,6 @@ class Attendance extends Model
 
     public function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }

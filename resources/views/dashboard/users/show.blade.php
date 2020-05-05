@@ -60,6 +60,11 @@
                     </td>
                 </tr>
             </table>
+            @if ($user->id == auth()->id())
+                <div class="form-group">
+                    <a href="{{ route('dashboard.user.edit', auth()->id()) }}" class="btn btn-primary btn-block">Edit User</a>
+                </div>
+            @endif
         </div>
     </div>
 

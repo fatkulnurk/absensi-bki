@@ -23,7 +23,7 @@ class UserController extends Controller
     public function index()
     {
         if (Auth::user()->hasRole(RoleEnum::$inspector)) {
-            return redirect()->route('dashboard.user.edit', Auth::id());
+            return redirect()->route('dashboard.user.show', Auth::id());
         }
 
         $users = User::all();
@@ -159,7 +159,7 @@ class UserController extends Controller
 
         if (Auth::user()->hasRole(RoleEnum::$inspector)) {
             return redirect()
-                ->route('dashboard.user.edit', Auth::id())
+                ->route('dashboard.user.show', Auth::id())
                 ->with('success', 'User berhasil diupdate');
         }
 

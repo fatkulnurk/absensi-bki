@@ -64,7 +64,7 @@
     <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
-                <a href="{{ route('dashboard.index') }}">{{ config('app.name') }}</a>
+                <a href="{{ route('dashboard.index') }}">SISTEM KEPEGAWAIAN BKI</a>
             </div>
             <div class="sidebar-brand sidebar-brand-sm">
                 <a href="{{ route('dashboard.index') }}">AB</a>
