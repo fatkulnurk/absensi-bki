@@ -63,8 +63,10 @@
     </nav>
     <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
-            <div class="sidebar-brand">
-                <a href="{{ route('dashboard.index') }}">SISTEM KEPEGAWAIAN BKI</a>
+            <div class="sidebar-brand" style="padding-top: 20px">
+                <a href="{{ route('dashboard.index') }}">
+                    <img src="{{ asset('logo.png') }}" style="max-height: 120px"> <br>
+                    SISTEM KEPEGAWAIAN BKI</a>
             </div>
             <div class="sidebar-brand sidebar-brand-sm">
                 <a href="{{ route('dashboard.index') }}">AB</a>
