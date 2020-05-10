@@ -28,8 +28,8 @@
                 @foreach($personalQualificatons as $personalQualificaton)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $personalQualificaton->user->id }}</td>
-                        <td>{{ $personalQualificaton->user->name }}</td>
+                        <td>{{ optional($personalQualificaton->user)->id }}</td>
+                        <td>{{ optional($personalQualificaton->user)->name }}</td>
                         <td>{{ $personalQualificaton->name }}</td>
                         <td>{{ $personalQualificaton->year }}</td>
                         <td class="text-center">
