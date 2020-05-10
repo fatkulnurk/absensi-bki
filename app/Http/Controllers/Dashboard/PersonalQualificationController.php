@@ -18,11 +18,10 @@ class PersonalQualificationController extends Controller
      */
     public function index()
     {
-
         if (Auth::user()->hasRole(RoleEnum::$inspector)) {
-            $personalQualificatons = PersonalQualifications::where('user_id', Auth::id())->get();
+            $personalQualificatons = PersonalQualifications::with('user')->where('user_id', Auth::id())->get();
         } else {
-            $personalQualificatons = PersonalQualifications::all();
+            $personalQualificatons = PersonalQualifications::with('user')->get();
         }
 
         return view('dashboard.personal-qualifications.index', compact('personalQualificatons'));
