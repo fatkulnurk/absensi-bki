@@ -1,6 +1,11 @@
 @extends('layouts.dashboard')
 
-@section('title', 'SPK PO')
+@if (auth()->user()->hasRole(\App\Enums\RoleEnum::$admin))
+    @section('title', 'SPK PO')
+@else
+    @section('title', 'Pemilihan Inspektur')
+@endif
+
 
 @section('content')
 
@@ -39,13 +44,13 @@
                         <td>{{ $item->owner }}</td>
                         <td>{{ $item->company_name }}</td>
                         <td>
-                            <a href="//intip.in/bkipi" class="btn btn-success btn-block">Cetak</a>
+                            <a href="https://drive.google.com/file/d/1rpLOYMZ2xDCPjFN4e8pRZw0Zej6whWPm/view" class="btn btn-success btn-block">Cetak</a>
                         </td>
                         <td>
                             @if (blank($item->user))
-                                <a href="#" class="btn btn-primary btn-block disabled" disabled="">Cetak</a>
+                                <a href="#" class="btn btn-secondary btn-block disabled" disabled="">Cetak</a>
                             @else
-                                <a href="//intip.in/bkipo" class="btn btn-primary btn-block">Cetak</a>
+                                <a href="https://drive.google.com/file/d/1RWC6RO_pgvInso7WbvkULbUh3dLDHvIK/view" class="btn btn-primary btn-block">Cetak</a>
                             @endif
                         </td>
                         <td class="text-center">

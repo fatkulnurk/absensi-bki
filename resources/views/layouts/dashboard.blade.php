@@ -93,7 +93,7 @@
 
                 @if (auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))
                     <li><a class="nav-link" href="{{ route('dashboard.inspection-job.index') }}"><i class="far fas fa-user-alt"></i> <span>Tugas Inspeksi</span></a></li>
-                    <li><a class="nav-link" href="{{ route('dashboard.invoice.index') }}"><i class="far fas fa-user-alt"></i> <span>Koordinator Bidang</span></a></li>
+                    <li><a class="nav-link" href="{{ route('dashboard.invoice.index') }}"><i class="far fas fa-user-alt"></i> <span>Invoice</span></a></li>
                 @endif
 
 {{--                @if (!auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))--}}

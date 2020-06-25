@@ -37,7 +37,7 @@
                                 <a href="{{ route('dashboard.spi.create', ['spk_po_id' => $item->id]) }}" class="btn btn-info btn-block">Buat SPI</a>
                             @else
                                 <a href="{{ route('dashboard.spi.show',  $item->id) }}" class="btn btn-success">Lihat Spi</a>
-                                <a href="//Intip.in/bkispi" class="btn btn-primary">Cetak SPI</a>
+                                <a href="https://drive.google.com/file/d/1rpLOYMZ2xDCPjFN4e8pRZw0Zej6whWPm/view" class="btn btn-primary">Cetak SPI</a>
                             @endif
                         </td>
                     </tr>

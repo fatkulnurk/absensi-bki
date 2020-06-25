@@ -78,10 +78,10 @@
 {{--            @endif--}}
             <div class="row">
                 <div class="col-md-6">
-                    <a href="//Intip.in/bkibaf" class="btn btn-block btn-primary">BERITA ACARA FISIK</a>
+                    <a href="https://drive.google.com/file/d/1ft2IMzAtSCksmgH8DhiGfXjceNrB5FGg/view" class="btn btn-block btn-primary">BERITA ACARA FISIK</a>
                 </div>
                 <div class="col-md-6">
-                    <a href="//Intip.in/bkibap" class="btn btn-block btn-success">BERITA ACARA PENYELESAIAN PEKERJAAN</a>
+                    <a href="https://drive.google.com/file/d/12QjWIwyZoeZ8i9cILhQtbp-lcrK1lC_e/view" class="btn btn-block btn-success">BERITA ACARA PENYELESAIAN PEKERJAAN</a>
                 </div>
             </div>
         </div>

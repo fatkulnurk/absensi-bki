@@ -23,7 +23,9 @@ class SpiController extends Controller
      */
     public function index()
     {
-        $spkPo = SpkPo::with('user', 'spi')->get();
+        $spkPo = SpkPo::with('user', 'spi')
+            ->where('user_id', '!=', null)
+            ->get();
 
         return view('dashboard.spi.index', compact('spkPo'));
     }
