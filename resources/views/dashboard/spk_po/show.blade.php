@@ -8,7 +8,7 @@
         <div class="card-body">
             <table id="example" class="table table-striped table-bordered">
                 <tr>
-                    <td>SPN Number</td>
+                    <td>SPK Number</td>
                     <td style="width: 10px">:</td>
                     <td>{{ $spkPo->spn_number }}</td>
                 </tr>

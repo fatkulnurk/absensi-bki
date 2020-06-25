@@ -18,7 +18,7 @@
 
                 <div class="card-body">
                     <div class="form-group">
-                        <label>SPN Number</label>
+                        <label>SPK Number</label>
                         <input type="text" class="form-control @error('spn_number') is-invalid @enderror" name="spn_number" value="{{ old('spn_number', $spkPo->spn_number) }}" required>
                     </div>
                     @error('spn_number')
