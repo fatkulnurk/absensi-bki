@@ -38,11 +38,52 @@
                     <td>{{ optional($spkPo->user)->name }}</td>
                 </tr>
             </table>
+{{--            <hr>--}}
+{{--            <h3>Detail SPI</h3>--}}
+{{--            <table id="example" class="table table-striped table-bordered">--}}
+
+{{--                <tr>--}}
+{{--                    <td>Nama Perusahaan</td>--}}
+{{--                    <td style="width: 10px">:</td>--}}
+{{--                    <td>{{ $spkPo->spi->company_name }}</td>--}}
+{{--                </tr>--}}
+
+{{--                <tr>--}}
+{{--                    <td>Nomor Telepon</td>--}}
+{{--                    <td style="width: 10px">:</td>--}}
+{{--                    <td>{{ $spkPo->spi->phone_number }}</td>--}}
+{{--                </tr>--}}
+
+{{--                <tr>--}}
+{{--                    <td>Deskripsi Pekerjaan</td>--}}
+{{--                    <td style="width: 10px">:</td>--}}
+{{--                    <td>{{ $spkPo->spi->job_description }}</td>--}}
+{{--                </tr>--}}
+
+{{--                <tr>--}}
+{{--                    <td>Tanggal Mulai</td>--}}
+{{--                    <td style="width: 10px">:</td>--}}
+{{--                    <td>{{ $spkPo->spi->start_date }}</td>--}}
+{{--                </tr>--}}
+{{--                <tr>--}}
+{{--                    <td>Tanggal Selesai</td>--}}
+{{--                    <td style="width: 10px">:</td>--}}
+{{--                    <td>{{ $spkPo->spi->finish_date }}</td>--}}
+{{--                </tr>--}}
+{{--            </table>--}}
 {{--            @if ($user->id == auth()->id())--}}
 {{--                <div class="form-group">--}}
 {{--                    <a href="{{ route('dashboard.user.edit', auth()->id()) }}" class="btn btn-primary btn-block">Edit User</a>--}}
 {{--                </div>--}}
 {{--            @endif--}}
+            <div class="row">
+                <div class="col-md-6">
+                    <a href="" class="btn btn-block btn-primary">BERITA ACARA FISIK</a>
+                </div>
+                <div class="col-md-6">
+                    <a href="" class="btn btn-block btn-success">BERITA ACARA PENYELESAIAN PEKERJAAN</a>
+                </div>
+            </div>
         </div>
     </div>
 
