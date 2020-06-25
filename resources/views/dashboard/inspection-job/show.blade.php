@@ -78,10 +78,10 @@
 {{--            @endif--}}
             <div class="row">
                 <div class="col-md-6">
-                    <a href="" class="btn btn-block btn-primary">BERITA ACARA FISIK</a>
+                    <a href="//Intip.in/bkibaf" class="btn btn-block btn-primary">BERITA ACARA FISIK</a>
                 </div>
                 <div class="col-md-6">
-                    <a href="" class="btn btn-block btn-success">BERITA ACARA PENYELESAIAN PEKERJAAN</a>
+                    <a href="//Intip.in/bkibap" class="btn btn-block btn-success">BERITA ACARA PENYELESAIAN PEKERJAAN</a>
                 </div>
             </div>
         </div>

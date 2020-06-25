@@ -14,9 +14,15 @@
                 </tr>
 
                 <tr>
+                    <td>Nama Pekerjaan</td>
+                    <td style="width: 10px">:</td>
+                    <td>{{ $spkPo->job_name }}</td>
+                </tr>
+
+                <tr>
                     <td>Nama Perusahaan</td>
                     <td style="width: 10px">:</td>
-                    <td>{{ $spkPo->spi->company_name }}</td>
+                    <td>{{ $spkPo->company_name }}</td>
                 </tr>
 
                 <tr>
@@ -73,9 +79,9 @@
 {{--                    <a href="{{ route('dashboard.user.edit', auth()->id()) }}" class="btn btn-primary btn-block">Edit User</a>--}}
 {{--                </div>--}}
 {{--            @endif--}}
-            <div class="form-group">
-                <a href="" class="btn btn-primary btn-block">Cetak Spi</a>
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <a href="" class="btn btn-primary btn-block">Cetak Spi</a>--}}
+{{--            </div>--}}
         </div>
     </div>
 

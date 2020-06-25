@@ -15,8 +15,8 @@ class CreateSpiTable extends Migration
     {
         Schema::create('spi', function (Blueprint $table) {
             $table->id();
-            $table->string('project_name');
-            $table->string('company_name');
+            $table->string('project_name')->nullable();
+            $table->string('company_name')->nullable();
             $table->string('phone_number');
             $table->text('job_description');
             $table->date('start_date');

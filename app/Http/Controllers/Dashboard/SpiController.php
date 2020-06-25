@@ -49,8 +49,8 @@ class SpiController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'project_name' => 'required',
-            'company_name' => 'required',
+//            'project_name' => 'required',
+//            'company_name' => 'required',
             'phone_number' => 'required',
             'job_description' => 'required',
             'start_date' => 'required',

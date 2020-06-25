@@ -20,6 +20,7 @@
                     <th>Lokasi</th>
                     <th>Owner</th>
                     <th>Nama Perusahaan</th>
+{{--                    <th>Cetak</th>--}}
                     <th>Opsi</th>
                 </tr>
                 </thead>
@@ -33,6 +34,16 @@
                         <td>{{ $item->location }}</td>
                         <td>{{ $item->owner }}</td>
                         <td>{{ $item->company_name }}</td>
+{{--                        <td style="width: 1000px !important;">--}}
+{{--                            <div class="row">--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <a href="//Intip.in/bkibaf" class="btn btn-block btn-primary">BERITA ACARA FISIK</a>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <a href="//Intip.in/bkibap" class="btn btn-block btn-success">BERITA ACARA PENYELESAIAN PEKERJAAN</a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </td>--}}
 {{--                        <td>--}}
 {{--                            <a href="//intip.in/bkipi" class="btn btn-success btn-block">Cetak</a>--}}
 {{--                        </td>--}}

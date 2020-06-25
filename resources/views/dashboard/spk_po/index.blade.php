@@ -43,9 +43,9 @@
                         </td>
                         <td>
                             @if (blank($item->user))
-                                <a href="//intip.in/bkip" class="btn btn-primary btn-block disabled" disabled="">Cetak</a>
+                                <a href="#" class="btn btn-primary btn-block disabled" disabled="">Cetak</a>
                             @else
-                                <a href="//intip.in/bkip" class="btn btn-primary btn-block">Cetak</a>
+                                <a href="//intip.in/bkipo" class="btn btn-primary btn-block">Cetak</a>
                             @endif
                         </td>
                         <td class="text-center">

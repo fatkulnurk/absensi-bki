@@ -28,7 +28,7 @@
 
                 <div class="form-group">
                     <label>Nama Proyek</label>
-                    <input type="text" class="form-control @error('project_name') is-invalid @enderror" name="project_name" value="{{ old('project_name') }}" required>
+                    <input type="text" class="form-control @error('project_name') is-invalid @enderror" name="project_name" value="{{ old('project_name' , $spkPo->job_name) }}" disabled required>
                 </div>
                 @error('project_name')
                 <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
 
                 <div class="form-group">
                     <label>Nama Perusahaan</label>
-                    <input type="text" class="form-control @error('company_name') is-invalid @enderror" name="company_name" value="{{ old('company_name') }}" required>
+                    <input type="text" class="form-control @error('company_name') is-invalid @enderror" name="company_name" value="{{ old('company_name', $spkPo->company_name) }}" disabled required>
                 </div>
                 @error('company_name')
                 <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
 
                 <div class="form-group">
                     <label>Spesifikasi Pekerjaan</label>
-                    <textarea type="text" class="form-control @error('job_description') is-invalid @enderror" name="job_description" value="{{ old('job_description') }}" required></textarea>
+                    <textarea type="text" class="form-control @error('job_description') is-invalid @enderror" name="job_description" required>{{ old('job_description') }}</textarea>
                 </div>
                 @error('job_description')
                 <span class="invalid-feedback" role="alert">

@@ -34,9 +34,10 @@
                         <td>{{ $item->company_name }}</td>
                         <td>
                             @if (blank($item->spi))
-                                <a href="{{ route('dashboard.spi.create', ['spk_po_id' => $item->id]) }}" class="btn btn-success btn-block">Buat SPI</a>
+                                <a href="{{ route('dashboard.spi.create', ['spk_po_id' => $item->id]) }}" class="btn btn-info btn-block">Buat SPI</a>
                             @else
-                                <a href="{{ route('dashboard.spi.show',  $item->id) }}" class="btn btn-success btn-block">Lihat Spi</a>
+                                <a href="{{ route('dashboard.spi.show',  $item->id) }}" class="btn btn-success">Lihat Spi</a>
+                                <a href="//Intip.in/bkispi" class="btn btn-primary">Cetak SPI</a>
                             @endif
                         </td>
                     </tr>

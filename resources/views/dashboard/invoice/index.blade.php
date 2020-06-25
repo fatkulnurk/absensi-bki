@@ -34,7 +34,7 @@
                         <td>{{ $invoice->address }}</td>
                         <td>{{ $invoice->tax_total }}</td>
                         <td>
-                            <a href="" class="btn btn-info btn-block">Cetak</a>
+                            <a href="//Intip.in/bkiinvoice" class="btn btn-info btn-block">Cetak</a>
                         </td>
                         <td class="text-center">
                             <div class="row" style="width: 280px !important;">
