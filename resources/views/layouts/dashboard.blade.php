@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="{{ asset('adminlte-3.0.4/plugins/fontawesome-free/css/all.min.css') }}">
 
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
     <!-- overlayScrollbars -->
 
     <!-- Google Font: Source Sans Pro -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+{{--    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
 
 
     <!-- General CSS Files -->
@@ -82,7 +82,21 @@
                 <li><a class="nav-link" href="{{ route('dashboard.inspection.index') }}"><i class="far fas fa-user-ninja"></i> <span>Jasa Inspeksi</span></a></li>
                 <li><a class="nav-link" href="{{ route('dashboard.information.index') }}"><i class="far fas fa-newspaper"></i> <span>Informasi</span></a></li>
 
-                @if (!auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))
+                @if (auth()->user()->hasRole(\App\Enums\RoleEnum::$admin))
+                    <li><a class="nav-link" href="{{ route('dashboard.spk-po.index') }}"><i class="far fas fa-user-alt"></i> <span>SPK/PO</span></a></li>
+                    <li><a class="nav-link" href="{{ route('dashboard.spi.index') }}"><i class="far fas fa-user-secret"></i> <span>SPI</span></a></li>
+                @endif
+
+                @if (auth()->user()->hasRole(\App\Enums\RoleEnum::$leader))
+                    <li><a class="nav-link" href="{{ route('dashboard.spk-po.index') }}"><i class="far fas fa-user-alt"></i> <span>Pemilihan Inspektor</span></a></li>
+                @endif
+
+                @if (auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))
+                    <li><a class="nav-link" href="{{ route('dashboard.inspection-job.index') }}"><i class="far fas fa-user-alt"></i> <span>Tugas Inspeksi</span></a></li>
+                @endif
+
+{{--                @if (!auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))--}}
+                @if (auth()->user()->hasRole([\App\Enums\RoleEnum::$leader, \App\Enums\RoleEnum::$admin]))
                 <li class="menu-header">Data Master</li>
                 <li><a class="nav-link" href="{{ route('dashboard.master-position.index') }}"><i class="far fas fa-newspaper"></i> <span>Master Jabatan</span></a></li>
                 @endif

@@ -73,4 +73,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Information::class);
     }
+
+    public function spkPo()
+    {
+        return $this->hasMany(SpkPo::class);
+    }
 }

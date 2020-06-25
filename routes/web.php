@@ -30,6 +30,10 @@ Route::group([
     Route::resource('/master-position', 'MasterPositionController');
     Route::resource('/inspection', 'InspectionController');
     Route::resource('/personal-qualification', 'PersonalQualificationController');
+    Route::resource('/spk-po', 'SpkPoController');
+    Route::resource('/spi', 'SpiController');
+    Route::resource('/inspection-job', 'InspectionJobController')
+        ->only(['index', 'show']);
 });
 Route::get('/logout', 'LogoutController')->name('logout.get');
 
