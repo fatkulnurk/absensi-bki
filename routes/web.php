@@ -32,6 +32,7 @@ Route::group([
     Route::resource('/personal-qualification', 'PersonalQualificationController');
     Route::resource('/spk-po', 'SpkPoController');
     Route::resource('/spi', 'SpiController');
+    Route::resource('/invoice', 'InvoiceController');
     Route::resource('/inspection-job', 'InspectionJobController')
         ->only(['index', 'show']);
 });

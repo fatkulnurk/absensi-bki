@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="{{ asset('adminlte-3.0.4/plugins/fontawesome-free/css/all.min.css') }}">
 
     <!-- Ionicons -->
-{{--    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">--}}
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- overlayScrollbars -->
 
     <!-- Google Font: Source Sans Pro -->
-{{--    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">--}}
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
 
     <!-- General CSS Files -->
@@ -93,6 +93,7 @@
 
                 @if (auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))
                     <li><a class="nav-link" href="{{ route('dashboard.inspection-job.index') }}"><i class="far fas fa-user-alt"></i> <span>Tugas Inspeksi</span></a></li>
+                    <li><a class="nav-link" href="{{ route('dashboard.invoice.index') }}"><i class="far fas fa-user-alt"></i> <span>Koordinator Bidang</span></a></li>
                 @endif
 
 {{--                @if (!auth()->user()->hasRole(\App\Enums\RoleEnum::$inspector))--}}
